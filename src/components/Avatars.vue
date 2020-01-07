@@ -129,7 +129,7 @@ export default {
 
   computed: {
     LoadingImgMain() {
-      return "./../../src/img/index/error.jpeg";
+      return "./src/img/index/error.jpeg";
     },
     LoadingImageAlt() {
       return "";
