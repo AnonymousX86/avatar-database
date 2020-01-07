@@ -16,7 +16,7 @@
           />
           <button type="reset" @click="updateSearch('')">Clear</button>
           <datalist id="tags">
-            <option v-for="tag of TagsTotalData" :key="tag" :value="tag"></option>
+            <option v-for="tag of TagsSortedData" :key="tag" :value="tag"></option>
           </datalist>
         </form>
       </div>
