@@ -182,7 +182,7 @@ export default {
     },
     // Sorted tags by name
     TagsSortedData() {
-      return TagsTotalData.sort();
+      return this.TagsTotalData.sort();
     },
     // Filtered tags
     TagsFilteredData() {
