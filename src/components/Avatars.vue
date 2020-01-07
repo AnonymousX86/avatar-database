@@ -53,7 +53,7 @@
           </div>
           <p class="my-1">{{ avatar.name }}</p>
           <div class="btn-container">
-            <button type="button" @click="ShowTags(avatar.tags)" class="tags">Tags</button>
+            <button type="button" @click="ShowInfo(avatar)" class="tags">Info</button>
             <button type="button" @click="DownloadImg(avatar.name)" class="download">Preview</button>
           </div>
         </div>
@@ -99,8 +99,8 @@ export default {
       this.search = tag;
     },
     // Show tags after pressing button
-    ShowTags(input) {
-      alert("Tags: " + input.join(", ") + ".");
+    ShowInfo(input) {
+      alert("Tags: " + input.tags.join(", ") + "\nSize: " + input.size + "px");
     },
     // Download avatar button
     DownloadImg(name) {
