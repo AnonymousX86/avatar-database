@@ -3,56 +3,56 @@
 
 <head>
 
-    <!-- Meta -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <!-- Title -->
-    <title>Avatar Database</title>
+  <!-- Title -->
+  <title>Avatar Database</title>
 
 </head>
 
 <body>
 
-    <!-- Start '#app' -->
-    <div id="app">
+<!-- Start '#app' -->
+<div id="app">
 
-        <div id="navbar">
-            <b-navbar variant="dark" type="dark">
+  <div id="navbar">
+    <b-navbar variant="dark" type="dark">
 
-                <b-navbar-brand href="#">
-                    Avatar Database
-                </b-navbar-brand>
+      <b-navbar-brand href="#">
+        Avatar Database
+      </b-navbar-brand>
 
-                <b-navbar-nav>
+      <b-navbar-nav>
 
-                    <b-nav-item to="/" :class="{ active: this.$route.name === 'home' }">
-                        Home
-                    </b-nav-item>
+        <b-nav-item to="/" :class="{ active: this.$route.name === 'home' }">
+          Home
+        </b-nav-item>
 
-                    <b-nav-item to="/about" :class="{ active: this.$route.name === 'about' }">
-                        About
-                    </b-nav-item>
+        <b-nav-item to="/about" :class="{ active: this.$route.name === 'about' }">
+          About
+        </b-nav-item>
 
-                    <b-nav-item to="/contact" :class="{ active: this.$route.name === 'contact' }">
-                        Contact
-                    </b-nav-item>
+<!--        <b-nav-item to="/contact" :class="{ active: this.$route.name === 'contact' }">-->
+<!--          Contact-->
+<!--        </b-nav-item>-->
 
-                </b-navbar-nav>
+      </b-navbar-nav>
 
-            </b-navbar>
-        </div>
+    </b-navbar>
+  </div>
 
-        <b-container>
-            <router-view></router-view>
-        </b-container>
+  <b-container>
+    <router-view></router-view>
+  </b-container>
 
-    </div>
-    <!-- End '#app' -->
+</div>
+<!-- End '#app' -->
 
-    <script src="./dist/main-bundle.js"></script>
-    <script src="./dist/vendors~main-bundle.js"></script>
+<script src="./dist/main-bundle.js"></script>
+<script src="./dist/vendors~main-bundle.js"></script>
 
 </body>
 
