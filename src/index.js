@@ -41,10 +41,7 @@ new Vue({
 
     methods: {
         activeLink(name) {
-            if (name == this.$router.name)
-                return true
-            else
-                return false;
+            return name === this.$router.name;
         },
     },
 
