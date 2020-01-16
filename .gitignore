@@ -111,3 +111,6 @@ dist/*.js
 
 # Visual Studio Code files
 /.vscode
+
+# WebSotrm files
+/.idea
