@@ -84,7 +84,8 @@
 </template>
 
 <script>
-    import states from "./../data.js";
+    // import states from "./../data.js";
+    const states = require("./../data.json");
     export default {
         name: "my-avatars",
 
