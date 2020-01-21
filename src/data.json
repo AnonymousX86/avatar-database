@@ -370,6 +370,107 @@
         "fairy tale"
       ],
       "size": 184
+    },
+    {
+      "name": "Cat Bane",
+      "tags": [
+        "comics",
+        "dc",
+        "bane",
+        "animal",
+        "cat"
+      ],
+      "size": 184
+    },
+    {
+      "name": "New Joker",
+      "tags": [
+        "comics",
+        "dc",
+        "joker"
+      ],
+      "size": 184
+    },
+    {
+      "name": "Gray Batman",
+      "tags": [
+        "comics",
+        "dc",
+        "batman",
+        "gray"
+      ],
+      "size": 184
+    },
+    {
+      "name": "Batman Drinking Coffee",
+      "tags": [
+        "comics",
+        "dc",
+        "batman",
+        "coffee"
+      ],
+      "size": 184
+    },
+    {
+      "name": "Futuristic Batman",
+      "tags": [
+        "comics",
+        "dc",
+        "batman",
+        "futuristic"
+      ],
+      "size": 184
+    },
+    {
+      "name": "Batman on Red",
+      "tags": [
+        "comics",
+        "dc",
+        "batman",
+        "red"
+      ],
+      "size": 184
+    },
+    {
+      "name": "Black Panther in Orange",
+      "tags": [
+        "comics",
+        "marvel",
+        "black panther",
+        "orange"
+      ],
+      "size": 184
+    },
+    {
+      "name": "Cat Capitan America",
+      "tags": [
+        "comics",
+        "marvel",
+        "capitan america",
+        "animal",
+        "cat"
+      ],
+      "size": 184
+    },
+    {
+      "name": "Iron Man",
+      "tags": [
+        "comics",
+        "marvel",
+        "iron man",
+        "draw"
+      ],
+      "size": 184
+    },
+    {
+      "name": "Dark Star Lord",
+      "tags": [
+        "comics",
+        "marvel",
+        "star lord",
+        "dark"
+      ],
+      "size": 184
     }
   ]
 }
