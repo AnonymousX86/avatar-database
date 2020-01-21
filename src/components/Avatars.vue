@@ -60,12 +60,6 @@
         <!-- END Generating avatars -->
       </div>
     </div>
-    <!-- Contribute -->
-    <div class="col-12">
-      <a
-              href="https://www.freepik.com/free-photos-vectors/poster"
-      >Eror 404 thumbnail created by macrovector - www.freepik.com</a>
-    </div>
     <!-- Overlay wrapper -->
     <div id="overlay-wrapper" style="display: none;" @click="CloseDownload">
       <div class="overlay">
