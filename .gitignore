@@ -107,7 +107,7 @@ dist/*.js
 .tern-port
 
 # Avatars
-/src/img/avatars
+/src/img
 
 # Visual Studio Code files
 /.vscode
