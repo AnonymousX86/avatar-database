@@ -40,6 +40,15 @@ body {
   background-color: #eee !important;
 }
 
+nav,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  font-family: 'Special Elite', 'Consolas', sans-serif;
+}
+
 .btn-back {
   background-color: white;
   @extend %thin-border;
@@ -93,18 +102,24 @@ body {
   }
 }
 
-button.tag {
-  @extend %std-transition;
-  @extend %std-padding;
-  @extend %no-outline;
-  @extend %std-border-radius;
-  background-color: $secondary;
-  color: white;
-  border: none;
-  margin: 3px;
-}
-button.tag:hover {
-  background-color: $secondaryHover;
+.tag-wrapper {
+  button.tag {
+    @extend %std-transition;
+    @extend %std-padding;
+    @extend %no-outline;
+    @extend %std-border-radius;
+    display: inline-block;
+    background-color: $secondary;
+    color: white;
+    border: none;
+    margin: 3px;
+    font-size: 15px;
+    font-weight: 200;
+  }
+
+  button.tag:hover {
+    background-color: $secondaryHover;
+  }
 }
 
 .avatar-wrapper {
@@ -151,4 +166,17 @@ button.tag:hover {
   .tags, .download {
     opacity: 1;
   }
+}
+
+// Vue transition between pages
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: .3s;
+  transition-property: opacity;
+  transition-timing-function: ease-in;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
 }
