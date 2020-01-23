@@ -25,13 +25,15 @@
         Tag list
         <span class="faded">({{ TagsFilteredAmount }})</span>
       </p>
-      <button
-              v-for="tag of TagsFilteredData"
-              :key="tag"
-              @click="updateSearch(tag)"
-              class="tag"
-      >{{ tag }}
-      </button>
+      <div class="col-12 p-0 tag-wrapper">
+        <button
+                v-for="tag of TagsFilteredData"
+                :key="tag"
+                @click="updateSearch(tag)"
+                class="tag"
+        >{{ tag }}
+        </button>
+      </div>
     </div>
 
 
@@ -51,7 +53,7 @@
             <img :alt="LoadingImageAlt" :src="LoadingImgMain" class="img-fluid"/>
             <img :alt="''" :src="imgLink(avatar.name)" class="img-fluid"/>
           </div>
-          <p class="my-1">{{ avatar.name }}</p>
+          <p class="my-1 pl-2">{{ avatar.name }}</p>
           <div class="btn-container">
             <button type="button" @click="ShowInfo(avatar)" class="tags">Info</button>
             <button type="button" @click="DownloadImg(avatar.name)" class="download">Preview</button>
@@ -66,9 +68,9 @@
         <button type="button" class="btn-back">Back</button>
         <div>
           <img
-                  :src="'./src/img/index/error.jpeg'"
+                  :src="ErrorImg"
                   :alt="'No image'"
-                  :class="'img-fluid download-img'"
+                  class="img-fluid download-img"
                   id="download-overlay-image"
           />
         </div>
@@ -123,94 +125,105 @@
         },
 
         computed: {
-            /**
-             * @return {string}
-             */
-            LoadingImgMain() {
-                return "./src/img/index/error.jpeg";
-            },
-            /**
-             * @return {string}
-             */
-            LoadingImageAlt() {
-                return "";
-            },
-            // +-----------+
-            // |  AVATARS  |
-            // +-----------+
-            //
-            // All avatars
-            AvatarsTotalData() {
-                return states.Avatars;
-            },
-            // Sorted avatars
-            AvatarsSortedData() {
-                return this.AvatarsTotalData.sort(this.compare);
-            },
-            // Filtered avatars
-            AvatarsFilteredData() {
-                if (this.search === "") {
-                    return this.AvatarsSortedData;
-                } else {
-                    return this.AvatarsSortedData.filter(avatar =>
-                        avatar.tags.includes(this.search.toLowerCase())
-                    );
-                }
-            },
-            // Amount of all avatars
-            AvatarsTotalAmount() {
-                return this.AvatarsTotalData.length;
-            },
-            // Amount of filtered avatars
-            AvatarsFilteredAmount() {
-                return this.AvatarsFilteredData.length;
-            },
-            // +--------+
-            // |  TAGS  |
-            // +--------+
-            //
-            // All tags
-            TagsTotalData() {
-                let result = [];
-                for (let avatar of this.AvatarsTotalData) {
-                    for (let tag of avatar.tags) {
-                        if (!result.includes(tag)) {
-                            result.push(tag);
-                        }
-                    }
-                }
-                return result;
-            },
-            // Sorted tags by name
-            TagsSortedData() {
-                return this.TagsTotalData.sort();
-            },
-            // Filtered tags
-            TagsFilteredData() {
-                let result = [];
-                for (let avatar of this.AvatarsFilteredData) {
-                    for (let tag of avatar.tags) {
-                        if (!result.includes(tag)) {
-                            result.push(tag);
-                        }
-                    }
-                }
-                return result.sort();
-            },
-            // Amount of all tags
-            /**
-             * @return {number}
-             */
-            TagsTotalAmount() {
-                return this.TagsTotalData.length;
-            },
-            // Amount of filtered tags
-            /**
-             * @return {number}
-             */
-            TagsFilteredAmount() {
-                return this.TagsFilteredData.length;
-            }
+
+          /**
+           * @return {string}
+           */
+          ErrorImg() {
+            return './src/img/index/error.jpeg';
+          },
+
+          /**
+           * @return {string}
+           */
+          LoadingImgMain() {
+              return './src/img/index/error.jpeg';
+          },
+
+          /**
+           * @return {string}
+           */
+          LoadingImageAlt() {
+              return '';
+          },
+          // +-----------+
+          // |  AVATARS  |
+          // +-----------+
+          //
+          // All avatars
+          AvatarsTotalData() {
+              return states.Avatars;
+          },
+          // Sorted avatars
+          AvatarsSortedData() {
+              return this.AvatarsTotalData.sort(this.compare);
+          },
+          // Filtered avatars
+          AvatarsFilteredData() {
+              if (this.search === "") {
+                  return this.AvatarsSortedData;
+              } else {
+                  return this.AvatarsSortedData.filter(avatar =>
+                      avatar.tags.includes(this.search.toLowerCase())
+                  );
+              }
+          },
+          // Amount of all avatars
+          // AvatarsTotalAmount() {
+          //     return this.AvatarsTotalData.length;
+          // },
+          // Amount of filtered avatars
+          AvatarsFilteredAmount() {
+              return this.AvatarsFilteredData.length;
+          },
+          // +--------+
+          // |  TAGS  |
+          // +--------+
+          //
+          // All tags
+          TagsTotalData() {
+              let result = [];
+              for (let avatar of this.AvatarsTotalData) {
+                  for (let tag of avatar.tags) {
+                      if (!result.includes(tag)) {
+                          result.push(tag);
+                      }
+                  }
+              }
+              return result;
+          },
+          // Sorted tags by name
+          TagsSortedData() {
+              return this.TagsTotalData.sort();
+          },
+          // Filtered tags
+          TagsFilteredData() {
+              let result = [];
+              for (let avatar of this.AvatarsFilteredData) {
+                  for (let tag of avatar.tags) {
+                      if (!result.includes(tag)) {
+                          result.push(tag);
+                      }
+                  }
+              }
+              return result.sort();
+          },
+
+          // Amount of all tags
+          /**
+           * @return {number}
+           */
+          // TagsTotalAmount() {
+          //     return this.TagsTotalData.length;
+          // },
+
+          // Amount of filtered tags
+          /**
+           * @return {number}
+           */
+          TagsFilteredAmount() {
+              return this.TagsFilteredData.length;
+          }
         }
     };
 </script>
