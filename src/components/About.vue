@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 my-3">
       <p class="h1">What do you want to know?</p>
       <div class="row">
         <div class="col-8">
