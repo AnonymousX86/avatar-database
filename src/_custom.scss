@@ -168,6 +168,21 @@ nav,
   }
 }
 
+.contrib {
+  li {
+    a {
+      color: black;
+      transition: all 0s;
+    }
+
+    a:active,
+    a:hover {
+      color: #738beb;
+      cursor: pointer;
+    }
+  }
+}
+
 // Vue transition between pages
 .fade-enter-active,
 .fade-leave-active {
