@@ -3,8 +3,11 @@
     <div class="col-12 my-3">
       <p class="h1">What do you want to know?</p>
       <div class="row">
-        <div class="col-8">
-          <p>
+        <div class="col-xl-2 col-lg-3 col-md-4 col-5">
+          <img class="img-fluid rounded" :src="authorPhoto" alt="Author photo" />
+        </div>
+        <div class="col-xl-10 col-lg-9 col-md-8 col-7">
+          <p class="text-justify text-md-left">
             Hello, my name's Jakub. I'm C++/Python programmer and web developer.
             <br />One day I&nbsp;though: "I&nbsp;have a&nbsp;lot of&nbsp;avatars downloaded,
             also I&nbsp;have no&nbsp;idea what to do..." and&nbsp;this is&nbsp;how
@@ -14,9 +17,6 @@
             Make sure to visit
             <a href="https://github.com/AnonymousX86">my GitHub profile</a> for more projects.
           </p>
-        </div>
-        <div class="col-4">
-          <img class="img-fluid" src="" alt="" />
         </div>
       </div>
     </div>
@@ -50,7 +50,11 @@ export default {
 
   methods: {},
 
-  computed: {}
+  computed: {
+    authorPhoto() {
+      return './src/img/index/author.jpeg';
+    },
+  }
 };
 </script>
 
