@@ -32,15 +32,6 @@ const router = new VueRouter({
 });
 
 new Vue({
-
     el: '#app',
     router,
-
-
-    methods: {
-        activeLink(name) {
-            return name === this.$router.name;
-        },
-    },
-
 });
