@@ -14,6 +14,9 @@
 
   <meta name="robots" content="index,nofollow" />
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet" />
+
   <!-- Title -->
   <title>Avatar Database</title>
 
@@ -35,7 +38,7 @@
 <!-- Start '#app' -->
 <div id="app">
 
-  <div id="navbar">
+  <div id="navbar" class="sticky-top">
     <b-navbar variant="dark" type="dark">
 
       <b-navbar-brand href="#">
@@ -44,17 +47,13 @@
 
       <b-navbar-nav>
 
-        <b-nav-item to="/" :class="{ active: this.$route.name === 'home' }">
+        <b-nav-item to="/" exact exact-active-class="active">
           Home
         </b-nav-item>
 
-        <b-nav-item to="/about" :class="{ active: this.$route.name === 'about' }">
+        <b-nav-item to="/about" exact exact-active-class="active">
           About
         </b-nav-item>
-
-<!--        <b-nav-item to="/contact" :class="{ active: this.$route.name === 'contact' }">-->
-<!--          Contact-->
-<!--        </b-nav-item>-->
 
       </b-navbar-nav>
 
@@ -62,7 +61,12 @@
   </div>
 
   <b-container>
-    <router-view></router-view>
+    <transition
+            mode="out-in"
+            name="fade"
+    >
+      <router-view></router-view>
+    </transition>
   </b-container>
 
 </div>
