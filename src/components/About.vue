@@ -22,10 +22,19 @@
     </div>
     <!-- Contribute -->
     <div class="col-12">
-      <p class="h1">Contributions</p>
-      <a
-              href="https://www.freepik.com/free-photos-vectors/poster"
-      >Eror 404 thumbnail created by macrovector - www.freepik.com</a>
+      <p class="h1">Helpful sites</p>
+      <ul type="disc" class="contrib">
+        <li>
+          <a href="https://www.freepik.com/free-photos-vectors/poster" target="_top">
+            Eror 404 thumbnail created by macrovector - www.freepik.com
+          </a>
+        </li>
+        <li>
+          <a href="https://fonts.google.com/" target="_top">
+            Google Fonts <span class="faded">(Special Elite font)</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
