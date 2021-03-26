@@ -20,7 +20,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "bootstrap-vue": "^2.1.0",
+    "bootstrap-vue": "^2.21.2",
     "css-loader": "^3.4.0",
     "cssnano": "^4.1.10",
     "file-loader": "^5.0.2",
