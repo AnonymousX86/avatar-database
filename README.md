@@ -1,2 +1,2 @@
-# avatar-database
- Web database with avatars
+# Avatar Database
+
