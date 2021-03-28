@@ -9,8 +9,12 @@
 </template>
 
 <script>
+import Navigation from "@/components/Navigation"
+import MyFooter from "@/components/MyFooter"
 // noinspection JSUnusedGlobalSymbols
-export default {}
+export default {
+  components: { MyFooter, Navigation },
+}
 </script>
 
 <style>

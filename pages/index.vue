@@ -11,8 +11,11 @@
 </template>
 
 <script>
+import Avatars from "@/components/Avatars"
 // noinspection JSUnusedGlobalSymbols
-export default {}
+export default {
+  components: { Avatars },
+}
 </script>
 
 <style scoped></style>
