@@ -13,7 +13,7 @@ export default {
     htmlAttrs: { lang: "en", class: "bg-dark" },
   },
   css: ["@/assets/css/style.scss"],
-  plugins: ["@/plugins/preview.client.js"],
+  plugins: ["@/plugins/preview.client.js", "@/plugins/contentful.js"],
   components: true,
   buildModules: ["@nuxtjs/eslint-module"],
   modules: [
@@ -30,4 +30,9 @@ export default {
   },
   content: {},
   build: {},
+  env: {
+    CTF_SPACE_ID: process.env.CTF_SPACE_ID,
+    CTX_ENVIRONMENT_ID: process.env.CTX_ENVIRONMENT_ID,
+    CTF_ACCESS_TOKEN: process.env.CTF_ACCESS_TOKEN,
+  },
 }
