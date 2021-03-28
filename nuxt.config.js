@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 export default {
   target: "static",
   head: {
