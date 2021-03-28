@@ -16,9 +16,14 @@
     <b-navbar-toggle target="nav-collapse" />
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item to="/" :active="$route.name === 'index'">Home</b-nav-item>
-        <b-nav-item to="/about" :active="$route.name === 'about'">
-          About
+        <b-nav-item
+          v-for="l in links"
+          :key="l.id"
+          :to="l.path"
+          exact
+          exact-active-class="active"
+        >
+          {{ l.name }}
         </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
@@ -29,6 +34,22 @@
 <script>
 export default {
   name: "Navigation",
+  data() {
+    return {
+      links: [
+        {
+          id: 1,
+          path: "/",
+          name: "Home",
+        },
+        {
+          id: 2,
+          path: "/about",
+          name: "About",
+        },
+      ],
+    }
+  },
 }
 </script>
 
