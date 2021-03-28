@@ -13,7 +13,7 @@ export default {
   css: ["@/assets/css/style.scss"],
   plugins: ["@/plugins/preview.client.js"],
   components: true,
-  buildModules: ["@nuxtjs/eslint-module",],
+  buildModules: ["@nuxtjs/eslint-module"],
   modules: [
     "bootstrap-vue/nuxt",
     "@nuxtjs/axios",
