@@ -15,6 +15,6 @@ module.exports = {
   plugins: ["prettier"],
   // add your custom rules here
   rules: {
-    "prettier/prettier": ["error", { singleQuote: false }],
+    "prettier/prettier": ["error", { singleQuote: false, endOfLine: "crlf" }],
   },
 }
