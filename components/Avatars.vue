@@ -19,12 +19,14 @@
           xl="2"
           class="mb-2 mouseOver"
         >
-          <p class="mb-0">{{ a.fields.file.fileName }}</p>
+          <p class="mb-0" style="max-height: 24px">
+            {{ shortName(filenameOnly(a.fields.file.fileName)) }}
+          </p>
           <b-img-lazy
             :src="a.fields.file.url"
             :rounded="true"
             fluid
-            class="my-2"
+            class="my-2 w-100"
           />
           <b-row class="mouseOver-info">
             <b-col cols="12">
@@ -61,6 +63,12 @@ export default {
   methods: {
     sizes(wh) {
       return wh.width + "x" + wh.height
+    },
+    shortName(str) {
+      return str.length > 16 ? str.substr(0, 16) + "..." : str
+    },
+    filenameOnly(str) {
+      return str.substr(0, str.length - 4)
     },
   },
 }
