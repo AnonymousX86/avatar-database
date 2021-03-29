@@ -3,11 +3,27 @@
 export default {
   target: "server",
   head: {
-    title: "avatar-database",
+    title: "Avatar Database",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" },
+      { name: "author", content: "Jakub Suchenek" },
+      {
+        hid: "description",
+        name: "description",
+        content: "Web application with a lot of free to use avatars.",
+      },
+      { name: "generator", content: "nuxtjs" },
+      {
+        name: "keyword",
+        content:
+          "avatar, avatars, database, list, free, download, github, open source, project",
+      },
+      { name: "creator", content: "Jakub Suchenek" },
+      { name: "publisher", content: "Jakub Suchenek" },
+      { name: "color-scheme", content: "dark" },
+      { name: "theme-color", content: "" },
+      { name: "robots", content: "index, nofollow" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     htmlAttrs: { lang: "en", class: "bg-dark" },
