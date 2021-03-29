@@ -26,8 +26,10 @@
             fluid
             class="my-2"
           />
-          <b-button variant="primary" class="w-100">Download</b-button>
           <b-row class="mouseOver-info">
+            <b-col cols="12">
+              <b-button variant="info" class="w-100">Download</b-button>
+            </b-col>
             <b-col>
               {{ Math.floor(a.fields.file.details.size / 1024) }} KB
             </b-col>
