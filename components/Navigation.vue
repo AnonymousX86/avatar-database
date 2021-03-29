@@ -38,14 +38,19 @@ export default {
     return {
       links: [
         {
-          id: 1,
+          id: 0,
           path: "/",
           name: "Home",
         },
         {
-          id: 2,
+          id: 1,
           path: "/about",
           name: "About",
+        },
+        {
+          id: 2,
+          path: "/search",
+          name: "Search",
         },
       ],
     }
