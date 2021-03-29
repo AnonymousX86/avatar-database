@@ -21,6 +21,7 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/pwa",
     "@nuxt/content",
+    "@nuxtjs/robots",
   ],
   axios: {},
   pwa: {
@@ -29,6 +30,10 @@ export default {
     },
   },
   content: {},
+  robots: {
+    UserAgent: "*",
+    Allow: "/",
+  },
   build: {},
   env: {
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
