@@ -91,3 +91,7 @@ sw.*
 
 # Service Worker
 sw.js
+
+# Not exported images
+*.xcf
+*.psd

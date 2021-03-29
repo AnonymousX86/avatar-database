@@ -8,6 +8,15 @@
   </div>
 </template>
 
+<script>
+import Navigation from "@/components/Navigation"
+import MyFooter from "@/components/MyFooter"
+// noinspection JSUnusedGlobalSymbols
+export default {
+  components: { MyFooter, Navigation },
+}
+</script>
+
 <style>
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
