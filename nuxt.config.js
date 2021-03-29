@@ -35,11 +35,16 @@ export default {
   modules: [
     "bootstrap-vue/nuxt",
     "@nuxtjs/axios",
+    "@nuxtjs/gtm",
     "@nuxtjs/pwa",
     "@nuxt/content",
     "@nuxtjs/robots",
   ],
   axios: {},
+  gtm: {
+    id: "GTM-WZQNMMZ",
+    enabled: process.env.NODE_ENV && process.env.NODE_ENV === "production",
+  },
   pwa: {
     manifest: {
       lang: "en",
