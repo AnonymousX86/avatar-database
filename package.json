@@ -23,8 +23,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
-    "lint": "npm run lint:js",
-    "web": "npm run build && npm run start"
+    "lint": "npm run lint:js"
   },
   "config": {
     "port": "3000"
