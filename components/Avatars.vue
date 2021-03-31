@@ -1,12 +1,23 @@
 <template>
-  <b-row>
-    <b-col v-if="$fetchState.pending" cols="12">
-      <h5>Please wait...</h5>
+  <b-row class="pt-4">
+    <b-col
+      v-if="$fetchState.pending && firstFetch"
+      cols="12"
+      class="text-center my-5"
+    >
+      <h3 class="blink">Please wait...</h3>
     </b-col>
-    <b-col v-else-if="$fetchState.error" cols="12">
-      <h5>Error!</h5>
-      <p>Unable to load images.</p>
-      <b-button variant="primary" @click="$fetch">Try again</b-button>
+
+    <b-col v-else-if="$fetchState.error" cols="12" class="text-center my-5">
+      <b-row no-gutters>
+        <b-col cols="12" md="6" offset-md="3" class="text-left">
+          <h3>&#9888;&#65039; Error!</h3>
+          <p>Unable to load images.</p>
+          <b-button variant="warning" class="px-5 w-100" @click="$fetch">
+            Try again
+          </b-button>
+        </b-col>
+      </b-row>
     </b-col>
     <b-col v-else cols="12">
       <b-row>
