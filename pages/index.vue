@@ -2,7 +2,7 @@
   <b-row no-gutters>
     <b-col cols="12">
       <h1>Avatar database</h1>
-      <h5 class="border-left pl-3">A lot of avatars, free to use</h5>
+      <p class="border-left pl-3 h5">A lot of avatars, free to use</p>
       <p>This is currently empty homepage, everything will be added soon.</p>
     </b-col>
     <b-col cols="12">
