@@ -20,7 +20,7 @@
           class="mb-2 mouseOver"
         >
           <p class="mb-0" style="max-height: 24px">
-            {{ shortName(filenameOnly(a.fields.file.fileName)) }}
+            {{ shortName(a.fields.title) }}
           </p>
           <b-img-lazy
             :src="a.fields.file.url"
