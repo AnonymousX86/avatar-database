@@ -36,6 +36,7 @@
           <b-img-lazy
             :src="a.fields.file.url"
             :alt="a.fields.file.fileName"
+            blank-color="#777"
             :rounded="true"
             fluid
             class="my-2 w-100"
