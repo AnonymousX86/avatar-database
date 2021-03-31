@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="mt-4">
     <b-row no-gutters class="pb-5 pt-3 mx-5 border-top">
       <b-col>
         <a href="https://ko-fi.com/O5O542WQX" target="_blank" rel="noopener">
