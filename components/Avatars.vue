@@ -35,6 +35,7 @@
           </p>
           <b-img-lazy
             :src="a.fields.file.url"
+            :alt="a.fields.file.fileName"
             :rounded="true"
             fluid
             class="my-2 w-100"
