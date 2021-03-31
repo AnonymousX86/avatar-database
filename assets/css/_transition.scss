@@ -6,3 +6,12 @@
 .page-leave-to {
   opacity: 0;
 }
+
+.simple-enter-active,
+.simple-leave-active {
+  transition: all 0.2s ease-in-out;
+}
+.simple-enter,
+.simple-leave-to {
+  opacity: 0;
+}
