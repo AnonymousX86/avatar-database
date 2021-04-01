@@ -4,9 +4,6 @@
       <h1>Avatar database</h1>
       <p>A lot of free to use avatars.</p>
     </b-col>
-    <b-col cols="12">
-      <Avatars />
-    </b-col>
   </b-row>
 </template>
 
