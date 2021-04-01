@@ -34,7 +34,7 @@
             {{ shortName(a.fields.title) }}
           </p>
           <b-img-lazy
-            :src="a.fields.file.url"
+            :src="a.fields.file.url + '?fm=webp&w=240&h=240&q=90'"
             :alt="a.fields.file.fileName"
             blank-color="#777"
             :rounded="true"
