@@ -21,6 +21,10 @@
     </b-col>
     <b-col v-else cols="12">
       <b-row>
+        <b-col cols="12">
+          <h3>Recently added avatars</h3>
+        </b-col>
+
         <b-col
           v-for="(a, i) in myAssets"
           :key="i"
