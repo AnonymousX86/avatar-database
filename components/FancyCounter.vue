@@ -4,7 +4,7 @@
       <b-button
         class="w-100 font-weight-bolder"
         variant="success"
-        @click="$emit('plus-click')"
+        @click="clickPlus"
       >
         +
       </b-button>
@@ -13,7 +13,7 @@
       <b-button
         class="w-100 font-weight-bolder"
         variant="danger"
-        @click="$emit('minus-click')"
+        @click="clickMinus"
       >
         -
       </b-button>
@@ -21,9 +21,9 @@
 
     <b-col cols="12" class="mt-2">
       <b-form-select
-        v-model.number="counter"
+        v-model.number="currentOption"
         :options="$props.options"
-        @input="$emit('form-input', counter)"
+        @input="$emit('update', currentOption)"
       />
     </b-col>
   </b-row>
@@ -38,15 +38,29 @@ export default {
       type: Array,
       required: true,
     },
-    counterBase: {
+    startOption: {
       type: Number,
       required: true,
     },
   },
   data() {
     return {
-      counter: this.$props.counterBase,
+      currentOption: this.$props.startOption,
     }
+  },
+  methods: {
+    clickPlus() {
+      if (this.currentOption < this.$props.options.length - 1) {
+        this.currentOption++
+        this.$emit("update", this.currentOption)
+      }
+    },
+    clickMinus() {
+      if (this.currentOption > 0) {
+        this.currentOption--
+        this.$emit("update", this.currentOption)
+      }
+    },
   },
 }
 </script>

@@ -18,10 +18,8 @@
     >
       <FancyCounter
         :options="selectOptions"
-        :counter-base="assetsCount"
-        @plus-click="plusClick"
-        @minus-click="minusClick"
-        @form-input="formInput"
+        :start-option="currentOption"
+        @update="counterUpdate"
       />
     </b-col>
 
@@ -90,7 +88,9 @@
             class="py-3 my-2 w-100 font-weight-bold"
             @click="showMore"
           >
-            <span v-if="btnClicked" class="blink">Please wait...</span>
+            <span v-if="btnClicked" class="blink">
+              Loading next {{ selectOptions[currentOption].text }} avatars...
+            </span>
             <span v-else-if="noMoreAssets">There is no more avatars!</span>
             <span v-else>Show more</span>
           </b-button>
@@ -108,30 +108,48 @@ export default {
   name: "Avatars",
   data() {
     return {
+      selectOptions: [
+        {
+          value: 0,
+          text: 12,
+        },
+        {
+          value: 1,
+          text: 24,
+        },
+        {
+          value: 2,
+          text: 48,
+        },
+        {
+          value: 3,
+          text: 96,
+        },
+        {
+          value: 4,
+          text: 192,
+        },
+      ],
+      currentOption: 0,
       myAssets: [],
-      selectOptions: [12, 24, 48, 96, 192],
+      assetsSkip: 0,
       firstFetch: true,
       btnClicked: false,
       noMoreAssets: false,
-      assetsSkip: 0,
-      assetsCount: 12,
     }
   },
   async fetch() {
-    const preLen = this.myAssets.length
     const { items } = await createClient().getAssets({
       order: "-sys.createdAt",
-      limit: this.assetsCount,
+      limit: this.selectOptions[this.currentOption].text,
       skip: this.assetsSkip,
     })
-    !this.myAssets.length
-      ? (this.myAssets = items)
-      : this.myAssets.push(...items)
-    this.firstFetch = this.btnClicked = false
-    if (this.myAssets.length === preLen) {
+    if (items.length) {
+      this.myAssets.push(...items)
+    } else {
       this.noMoreAssets = true
-      this.assetsSkip -= this.assetsCount
     }
+    this.firstFetch = this.btnClicked = false
   },
   methods: {
     sizes(wh) {
@@ -141,32 +159,20 @@ export default {
       return str.length > 16 ? str.substr(0, 16) + "..." : str
     },
     resetAssetsData() {
-      this.noMoreAssets = false
+      this.myAssets = []
       this.assetsSkip = 0
+      this.firstFetch = true
+      this.btnClicked = false
+      this.noMoreAssets = false
     },
     showMore() {
       this.btnClicked = true
-      this.assetsSkip += this.assetsCount
+      this.assetsSkip += this.selectOptions[this.currentOption].text
       this.$fetch()
     },
-    plusClick() {
-      if (this.assetsCount < 192) {
-        this.assetsCount *= 2
-        this.resetAssetsData()
-        this.$fetch()
-      }
-    },
-    minusClick() {
-      if (this.assetsCount > 12) {
-        this.assetsCount /= 2
-        this.resetAssetsData()
-        this.$fetch()
-      }
-    },
-    formInput(payload) {
-      this.myAssets = []
-      this.firstFetch = true
-      this.assetsCount = payload
+    counterUpdate(payload) {
+      this.resetAssetsData()
+      this.currentOption = payload
       this.$fetch()
     },
   },
