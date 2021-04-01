@@ -35,11 +35,16 @@ export default {
   modules: [
     "bootstrap-vue/nuxt",
     "@nuxtjs/axios",
+    "@nuxtjs/gtm",
     "@nuxtjs/pwa",
     "@nuxt/content",
     "@nuxtjs/robots",
   ],
   axios: {},
+  gtm: {
+    id: "GTM-WZQNMMZ",
+    enabled: process.env.NODE_ENV && process.env.NODE_ENV === "production",
+  },
   pwa: {
     manifest: {
       lang: "en",
@@ -53,7 +58,7 @@ export default {
   build: {},
   env: {
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
-    CTX_ENVIRONMENT_ID: process.env.CTX_ENVIRONMENT_ID,
+    CTF_ENVIRONMENT_ID: process.env.CTF_ENVIRONMENT_ID,
     CTF_ACCESS_TOKEN: process.env.CTF_ACCESS_TOKEN,
   },
 }
