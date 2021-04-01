@@ -1,5 +1,10 @@
 <template>
   <b-row class="pt-4">
+    <b-col md="8">
+      <h3>Recently added avatars</h3>
+      <p>You can specify amount of showing & appending avatars.</p>
+    </b-col>
+
     <b-col
       v-if="$fetchState.pending && firstFetch"
       cols="12"
@@ -22,10 +27,6 @@
 
     <b-col v-else cols="12">
       <b-row>
-        <b-col cols="12">
-          <h3>Recently added avatars</h3>
-        </b-col>
-
         <b-col
           v-for="(a, i) in myAssets"
           :key="i"
