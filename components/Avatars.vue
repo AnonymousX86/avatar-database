@@ -19,6 +19,7 @@
         </b-col>
       </b-row>
     </b-col>
+
     <b-col v-else cols="12">
       <b-row>
         <b-col cols="12">
