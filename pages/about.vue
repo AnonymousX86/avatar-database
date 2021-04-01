@@ -10,6 +10,7 @@
 </template>
 
 <script>
+// noinspection JSUnusedGlobalSymbols
 export default {}
 </script>
 
