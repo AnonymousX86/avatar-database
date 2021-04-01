@@ -1,4 +1,4 @@
-# Avatar Database
+# Avatar database
 
 [![license](https://img.shields.io/github/license/AnonymousX86/avatar-database)](LICENSE)
 [![ci](https://github.com/AnonymousX86/avatar-database/actions/workflows/ci.yml/badge.svg)](https://github.com/AnonymousX86/avatar-database/actions/workflows/ci.yml)
