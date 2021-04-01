@@ -1,5 +1,32 @@
 <template>
   <b-row class="pt-4">
+    <b-col md="8">
+      <h3>Recently added avatars</h3>
+      <p>You can specify amount of showing & appending avatars.</p>
+    </b-col>
+
+    <b-col
+      cols="8"
+      offset="2"
+      sm="7"
+      offset-sm="5"
+      md="4"
+      offset-md="0"
+      lg="3"
+      xl="2"
+      offset-xl="1"
+    >
+      <FancyCounter
+        :options="selectOptions"
+        :counter-base="assetsCount"
+        @plus-click="plusClick"
+        @minus-click="minusClick"
+        @form-input="formInput"
+      />
+    </b-col>
+
+    <b-col cols="12" class="mb-4" />
+
     <b-col
       v-if="$fetchState.pending && firstFetch"
       cols="12"
@@ -22,10 +49,6 @@
 
     <b-col v-else cols="12">
       <b-row>
-        <b-col cols="12">
-          <h3>Recently added avatars</h3>
-        </b-col>
-
         <b-col
           v-for="(a, i) in myAssets"
           :key="i"
@@ -58,7 +81,6 @@
             </b-col>
           </b-row>
         </b-col>
-
         <b-col cols="8" offset="2">
           <b-button
             :variant="
@@ -87,17 +109,19 @@ export default {
   data() {
     return {
       myAssets: [],
+      selectOptions: [12, 24, 48, 96, 192],
       firstFetch: true,
       btnClicked: false,
       noMoreAssets: false,
       assetsSkip: 0,
+      assetsCount: 12,
     }
   },
   async fetch() {
     const preLen = this.myAssets.length
     const { items } = await createClient().getAssets({
       order: "-sys.createdAt",
-      limit: 6,
+      limit: this.assetsCount,
       skip: this.assetsSkip,
     })
     !this.myAssets.length
@@ -106,7 +130,7 @@ export default {
     this.firstFetch = this.btnClicked = false
     if (this.myAssets.length === preLen) {
       this.noMoreAssets = true
-      this.assetsSkip -= 6
+      this.assetsSkip -= this.assetsCount
     }
   },
   methods: {
@@ -116,12 +140,33 @@ export default {
     shortName(str) {
       return str.length > 16 ? str.substr(0, 16) + "..." : str
     },
-    filenameOnly(str) {
-      return str.substr(0, str.length - 4)
+    resetAssetsData() {
+      this.noMoreAssets = false
+      this.assetsSkip = 0
     },
     showMore() {
       this.btnClicked = true
-      this.assetsSkip += 6
+      this.assetsSkip += this.assetsCount
+      this.$fetch()
+    },
+    plusClick() {
+      if (this.assetsCount < 192) {
+        this.assetsCount *= 2
+        this.resetAssetsData()
+        this.$fetch()
+      }
+    },
+    minusClick() {
+      if (this.assetsCount > 12) {
+        this.assetsCount /= 2
+        this.resetAssetsData()
+        this.$fetch()
+      }
+    },
+    formInput(payload) {
+      this.myAssets = []
+      this.firstFetch = true
+      this.assetsCount = payload
       this.$fetch()
     },
   },

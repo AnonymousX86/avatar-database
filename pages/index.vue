@@ -2,21 +2,14 @@
   <b-row no-gutters>
     <b-col cols="12">
       <h1>Avatar database</h1>
-      <p class="border-left pl-3 h5">A lot of avatars, free to use</p>
-      <p>This is currently empty homepage, everything will be added soon.</p>
-    </b-col>
-    <b-col cols="12">
-      <Avatars />
+      <p>A lot of free to use avatars.</p>
     </b-col>
   </b-row>
 </template>
 
 <script>
-import Avatars from "@/components/Avatars"
 // noinspection JSUnusedGlobalSymbols
-export default {
-  components: { Avatars },
-}
+export default {}
 </script>
 
 <style scoped></style>

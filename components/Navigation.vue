@@ -44,6 +44,11 @@ export default {
         },
         {
           id: 2,
+          path: "/search",
+          name: "Search",
+        },
+        {
+          id: 3,
           path: "/about",
           name: "About",
         },
