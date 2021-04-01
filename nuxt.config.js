@@ -53,7 +53,7 @@ export default {
   build: {},
   env: {
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
-    CTX_ENVIRONMENT_ID: process.env.CTX_ENVIRONMENT_ID,
+    CTF_ENVIRONMENT_ID: process.env.CTF_ENVIRONMENT_ID,
     CTF_ACCESS_TOKEN: process.env.CTF_ACCESS_TOKEN,
   },
 }
