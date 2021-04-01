@@ -57,6 +57,21 @@
             </b-col>
           </b-row>
         </b-col>
+
+        <b-col cols="8" offset="2">
+          <b-button
+            :variant="
+              noMoreAssets ? 'warning' : btnClicked ? 'secondary' : 'primary'
+            "
+            :disabled="noMoreAssets"
+            class="py-3 my-2 w-100 font-weight-bold"
+            @click="showMore"
+          >
+            <span v-if="btnClicked" class="blink">Please wait...</span>
+            <span v-else-if="noMoreAssets">There is no more avatars!</span>
+            <span v-else>Show more</span>
+          </b-button>
+        </b-col>
       </b-row>
     </b-col>
   </b-row>
@@ -70,12 +85,28 @@ export default {
   name: "Avatars",
   data() {
     return {
-      myAssets: undefined,
+      myAssets: [],
+      firstFetch: true,
+      btnClicked: false,
+      noMoreAssets: false,
+      assetsSkip: 0,
     }
   },
   async fetch() {
-    const { items } = await createClient().getAssets()
-    this.myAssets = items
+    const preLen = this.myAssets.length
+    const { items } = await createClient().getAssets({
+      order: "-sys.createdAt",
+      limit: 6,
+      skip: this.assetsSkip,
+    })
+    !this.myAssets.length
+      ? (this.myAssets = items)
+      : this.myAssets.push(...items)
+    this.firstFetch = this.btnClicked = false
+    if (this.myAssets.length === preLen) {
+      this.noMoreAssets = true
+      this.assetsSkip -= 6
+    }
   },
   methods: {
     sizes(wh) {
@@ -86,6 +117,11 @@ export default {
     },
     filenameOnly(str) {
       return str.substr(0, str.length - 4)
+    },
+    showMore() {
+      this.btnClicked = true
+      this.assetsSkip += 6
+      this.$fetch()
     },
   },
 }
@@ -99,6 +135,15 @@ export default {
 .mouseOver:hover {
   .mouseOver-info {
     opacity: 1;
+  }
+}
+
+.blink {
+  animation: blinking 1s linear infinite;
+}
+@keyframes blinking {
+  50% {
+    opacity: 0.2;
   }
 }
 </style>
