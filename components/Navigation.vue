@@ -30,8 +30,8 @@
   </b-navbar>
 </template>
 
-<!--suppress JSUnusedGlobalSymbols -->
 <script>
+// noinspection JSUnusedGlobalSymbols
 export default {
   name: "Navigation",
   data() {
