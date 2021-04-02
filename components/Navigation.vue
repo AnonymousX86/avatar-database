@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="lg" type="dark" variant="info">
+  <b-navbar toggleable="lg" type="dark" variant="primary">
     <b-navbar-brand to="/">
       <b-img-lazy
         src="https://dummyimage.com/30x30/003385/fff.jpg&text=img"
