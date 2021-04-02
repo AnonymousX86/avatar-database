@@ -1,10 +1,10 @@
 <template>
-  <div class="bg-dark text-light">
+  <div>
     <Navigation />
     <b-container class="my-3">
       <Nuxt />
+      <MyFooter />
     </b-container>
-    <MyFooter />
   </div>
 </template>
 
@@ -31,5 +31,20 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
+}
+
+body {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.8);
+  transition: 0.8s ease-out;
+  transition-property: background-color, color, outline-color;
+}
+.dark-mode body {
+  background-color: #343a40;
+  color: #ebf4f1;
+}
+.sepia-mode body {
+  background-color: #f1e7d0;
+  color: #433422;
 }
 </style>
