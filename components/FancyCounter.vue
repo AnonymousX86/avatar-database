@@ -21,9 +21,9 @@
 
     <b-col cols="12" class="mt-2">
       <b-form-select
-        v-model.number="currentOption"
+        :value="$props.options[$props.currentOption]"
         :options="$props.options"
-        @input="$emit('update', currentOption)"
+        @input="inputSelect"
       />
     </b-col>
   </b-row>
@@ -38,28 +38,27 @@ export default {
       type: Array,
       required: true,
     },
-    startOption: {
+    currentOption: {
       type: Number,
       required: true,
     },
   },
-  data() {
-    return {
-      currentOption: this.$props.startOption,
-    }
-  },
   methods: {
     clickPlus() {
-      if (this.currentOption < this.$props.options.length - 1) {
-        this.currentOption++
-        this.$emit("update", this.currentOption)
+      if (this.$props.currentOption < this.$props.options.length - 1) {
+        this.$emit("update", this.$props.currentOption + 1)
       }
     },
     clickMinus() {
-      if (this.currentOption > 0) {
-        this.currentOption--
-        this.$emit("update", this.currentOption)
+      if (this.$props.currentOption > 0) {
+        this.$emit("update", this.$props.currentOption - 1)
       }
+    },
+    inputSelect(value) {
+      this.$emit(
+        "update",
+        this.$props.options.findIndex((e) => e === value)
+      )
     },
   },
 }
