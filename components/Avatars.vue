@@ -18,7 +18,7 @@
     >
       <FancyCounter
         :options="selectOptions"
-        :start-option="currentOption"
+        :current-option="currentOption"
         @update="counterUpdate"
       />
     </b-col>
@@ -108,28 +108,7 @@ export default {
   name: "Avatars",
   data() {
     return {
-      selectOptions: [
-        {
-          value: 0,
-          text: 12,
-        },
-        {
-          value: 1,
-          text: 24,
-        },
-        {
-          value: 2,
-          text: 48,
-        },
-        {
-          value: 3,
-          text: 96,
-        },
-        {
-          value: 4,
-          text: 192,
-        },
-      ],
+      selectOptions: [12, 24, 48, 96, 192],
       currentOption: 0,
       myAssets: [],
       assetsSkip: 0,
@@ -141,7 +120,7 @@ export default {
   async fetch() {
     const { items } = await createClient().getAssets({
       order: "-sys.createdAt",
-      limit: this.selectOptions[this.currentOption].text,
+      limit: this.selectOptions[this.currentOption],
       skip: this.assetsSkip,
     })
     if (items.length) {
@@ -167,7 +146,7 @@ export default {
     },
     showMore() {
       this.btnClicked = true
-      this.assetsSkip += this.selectOptions[this.currentOption].text
+      this.assetsSkip += this.selectOptions[this.currentOption]
       this.$fetch()
     },
     counterUpdate(payload) {
