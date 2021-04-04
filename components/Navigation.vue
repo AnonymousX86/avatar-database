@@ -1,11 +1,10 @@
 <template>
-  <b-navbar toggleable="lg" type="dark" variant="info">
+  <b-navbar toggleable="lg" type="dark" variant="primary">
     <b-navbar-brand to="/">
       <b-img-lazy
-        src="https://dummyimage.com/30x30/003385/fff.jpg&text=img"
-        alt=".img"
+        src="/navbar-icon.webp"
+        alt=""
         fluid
-        :rounded="true"
         width="30"
         blank-width="30"
         height="30"
@@ -30,8 +29,8 @@
   </b-navbar>
 </template>
 
-<!--suppress JSUnusedGlobalSymbols -->
 <script>
+// noinspection JSUnusedGlobalSymbols
 export default {
   name: "Navigation",
   data() {

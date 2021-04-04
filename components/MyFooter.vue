@@ -1,8 +1,20 @@
 <template>
   <footer class="mt-4">
-    <b-row no-gutters class="pb-5 pt-3 mx-5 border-top">
+    <b-row no-gutters class="pb-5 pt-3 border-top">
       <b-col>
-        <KofiButton />
+        <b-button
+          href="https://ko-fi.com/anonymousx86"
+          target="_blank"
+          rel="noopener"
+          variant="secondary"
+        >
+          <b-img
+            src="@/assets/img/KofiLogo.webp"
+            alt="Support me on Ko-fi"
+            height="42"
+            class="py-0 px-3"
+          />
+        </b-button>
       </b-col>
       <b-col>
         <p class="text-right text-muted">

@@ -69,7 +69,7 @@
           />
           <b-row class="mouseOver-info">
             <b-col cols="12">
-              <b-button variant="info" class="w-100">Download</b-button>
+              <b-button variant="primary" class="w-100">Download</b-button>
             </b-col>
             <b-col>
               {{ Math.floor(a.fields.file.details.size / 1024) }} KB
@@ -88,7 +88,9 @@
             class="py-3 my-2 w-100 font-weight-bold"
             @click="showMore"
           >
-            <span v-if="btnClicked" class="blink">Please wait...</span>
+            <span v-if="btnClicked" class="blink">
+              Loading next {{ selectOptions[assetsCountIndex] }} avatars...
+            </span>
             <span v-else-if="noMoreAssets">There is no more avatars!</span>
             <span v-else>Show more</span>
           </b-button>
@@ -106,12 +108,12 @@ export default {
   name: "Avatars",
   data() {
     return {
-      myAssets: [],
       selectOptions: [12, 24, 48, 96, 192],
+      myAssets: [],
+      assetsSkip: 0,
       firstFetch: true,
       btnClicked: false,
       noMoreAssets: false,
-      assetsSkip: 0,
       assetsCountIndex: 0,
     }
   },
@@ -132,6 +134,7 @@ export default {
     } catch (error) {
       alert(JSON.stringify(error))
     }
+    this.firstFetch = this.btnClicked = false
   },
   methods: {
     sizes(wh) {
@@ -141,8 +144,11 @@ export default {
       return str.length > 16 ? str.substr(0, 16) + "..." : str
     },
     resetAssetsData() {
-      this.noMoreAssets = false
+      this.myAssets = []
       this.assetsSkip = 0
+      this.firstFetch = true
+      this.btnClicked = false
+      this.noMoreAssets = false
     },
     showMore() {
       this.btnClicked = true
