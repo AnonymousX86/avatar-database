@@ -11,6 +11,7 @@
           <b-img
             src="@/assets/img/KofiLogo.webp"
             alt="Support me on Ko-fi"
+            width="148"
             height="42"
             class="py-0 px-3"
           />
