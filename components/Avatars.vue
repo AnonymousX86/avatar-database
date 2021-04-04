@@ -19,7 +19,7 @@
       <FancyCounter
         :options="selectOptions"
         :counter-index="assetsCountIndex"
-        @change="newHandler"
+        @change="handleFetchSizeChange"
       />
     </b-col>
 
@@ -125,9 +125,9 @@ export default {
       })
       this.myAssets = [...this.myAssets, ...items]
       this.firstFetch = this.btnClicked = false
+      this.assetsSkip = this.myAssets.length
       if (this.myAssets.length === preLen) {
         this.noMoreAssets = true
-        this.assetsSkip -= this.selectOptions[this.assetsCountIndex]
       }
     } catch (error) {
       alert(JSON.stringify(error))
@@ -146,37 +146,11 @@ export default {
     },
     showMore() {
       this.btnClicked = true
-      this.assetsSkip += this.assetsCount
       this.$fetch()
     },
-    plusClick() {
-      if (this.assetsCount < 192) {
-        this.assetsCount *= 2
-        this.resetAssetsData()
-        this.$fetch()
-      }
-    },
-    minusClick() {
-      if (this.assetsCount > 12) {
-        this.assetsCount /= 2
-        this.resetAssetsData()
-        this.$fetch()
-      }
-    },
-    formInput(payload) {
-      this.myAssets = []
-      this.firstFetch = true
-      this.assetsCount = payload
-      this.$fetch()
-    },
-
-    newHandler(index) {
-      alert(index)
+    handleFetchSizeChange(index) {
+      this.assetsSkip = this.myAssets.length
       this.assetsCountIndex = index
-      this.assetsSkip =
-        this.myAssets.length +
-        this.selectOptions[this.assetsCountIndex] -
-        this.myAssets.length
       this.$fetch()
     },
   },
