@@ -4,7 +4,14 @@
       <b-button
         class="w-100 font-weight-bolder"
         variant="success"
-        @click="clickPlus"
+        @click="
+          $emit(
+            'change',
+            $props.counterIndex + 1 < $props.options.length
+              ? $props.counterIndex + 1
+              : $props.counterIndex
+          )
+        "
       >
         +
       </b-button>
@@ -13,7 +20,14 @@
       <b-button
         class="w-100 font-weight-bolder"
         variant="danger"
-        @click="clickMinus"
+        @click="
+          $emit(
+            'change',
+            $props.counterIndex - 1 >= 0
+              ? $props.counterIndex - 1
+              : $props.counterIndex
+          )
+        "
       >
         -
       </b-button>
@@ -21,9 +35,9 @@
 
     <b-col cols="12" class="mt-2">
       <b-form-select
-        :value="$props.options[$props.currentOption]"
+        :value="$props.options[$props.counterIndex]"
         :options="$props.options"
-        @input="inputSelect"
+        @change="onChange"
       />
     </b-col>
   </b-row>
@@ -38,25 +52,15 @@ export default {
       type: Array,
       required: true,
     },
-    currentOption: {
+    counterIndex: {
       type: Number,
       required: true,
     },
   },
   methods: {
-    clickPlus() {
-      if (this.$props.currentOption < this.$props.options.length - 1) {
-        this.$emit("update", this.$props.currentOption + 1)
-      }
-    },
-    clickMinus() {
-      if (this.$props.currentOption > 0) {
-        this.$emit("update", this.$props.currentOption - 1)
-      }
-    },
-    inputSelect(value) {
+    onChange(value) {
       this.$emit(
-        "update",
+        "change",
         this.$props.options.findIndex((e) => e === value)
       )
     },

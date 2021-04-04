@@ -18,8 +18,8 @@
     >
       <FancyCounter
         :options="selectOptions"
-        :current-option="currentOption"
-        @update="counterUpdate"
+        :counter-index="assetsCountIndex"
+        @change="handleFetchSizeChange"
       />
     </b-col>
 
@@ -89,7 +89,7 @@
             @click="showMore"
           >
             <span v-if="btnClicked" class="blink">
-              Loading next {{ selectOptions[currentOption] }} avatars...
+              Loading next {{ selectOptions[assetsCountIndex] }} avatars...
             </span>
             <span v-else-if="noMoreAssets">There is no more avatars!</span>
             <span v-else>Show more</span>
@@ -101,7 +101,7 @@
 </template>
 
 <script>
-import { createClient } from "@/plugins/contentful"
+import client from "@/plugins/contentful"
 
 // noinspection JSUnusedGlobalSymbols
 export default {
@@ -109,24 +109,30 @@ export default {
   data() {
     return {
       selectOptions: [12, 24, 48, 96, 192],
-      currentOption: 0,
       myAssets: [],
       assetsSkip: 0,
       firstFetch: true,
       btnClicked: false,
       noMoreAssets: false,
+      assetsCountIndex: 0,
     }
   },
   async fetch() {
-    const { items } = await createClient().getAssets({
-      order: "-sys.createdAt",
-      limit: this.selectOptions[this.currentOption],
-      skip: this.assetsSkip,
-    })
-    if (items.length) {
-      this.myAssets.push(...items)
-    } else {
-      this.noMoreAssets = true
+    try {
+      const preLen = this.myAssets.length
+      const { items } = await client.getAssets({
+        order: "-sys.createdAt",
+        limit: this.selectOptions[this.assetsCountIndex],
+        skip: this.assetsSkip,
+      })
+      this.myAssets = [...this.myAssets, ...items]
+      this.firstFetch = this.btnClicked = false
+      this.assetsSkip = this.myAssets.length
+      if (this.myAssets.length === preLen) {
+        this.noMoreAssets = true
+      }
+    } catch (error) {
+      alert(JSON.stringify(error))
     }
     this.firstFetch = this.btnClicked = false
   },
@@ -146,12 +152,11 @@ export default {
     },
     showMore() {
       this.btnClicked = true
-      this.assetsSkip += this.selectOptions[this.currentOption]
       this.$fetch()
     },
-    counterUpdate(payload) {
-      this.resetAssetsData()
-      this.currentOption = payload
+    handleFetchSizeChange(index) {
+      this.assetsSkip = this.myAssets.length
+      this.assetsCountIndex = index
       this.$fetch()
     },
   },
