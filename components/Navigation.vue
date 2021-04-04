@@ -2,13 +2,13 @@
   <b-navbar toggleable="lg" type="dark" variant="primary">
     <b-navbar-brand to="/">
       <b-img-lazy
-        src="/navbar-icon.webp"
+        src=""
         alt=""
         fluid
-        width="30"
-        blank-width="30"
-        height="30"
-        blank-height="30"
+        width="32"
+        blank-width="32"
+        height="32"
+        blank-height="32"
       />
       Avatar Database
     </b-navbar-brand>
