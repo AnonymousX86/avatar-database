@@ -36,7 +36,7 @@
     "@nuxtjs/robots": "^2.5.0",
     "bootstrap": "^5.1.0",
     "bootstrap-vue": "^2.21.2",
-    "contentful": "^8.5.0",
+    "contentful": "^8.5.3",
     "core-js": "^3.16.3",
     "jquery": "^3.6.0",
     "nuxt": "^2.15.8"
