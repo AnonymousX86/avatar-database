@@ -51,7 +51,7 @@ export default {
     },
     meta: false,
     manifest: {
-      name: "Avatar database",
+      name: "Avatar Database",
       short_name: "Avatars",
       start_url: ".",
       display: "standalone",
