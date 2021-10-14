@@ -2,7 +2,7 @@
   "name": "avatar-database",
   "version": "1.0.0",
   "description": "Web app with a lot of avatars.",
-  "homepage": "http://avatar-database.ga",
+  "homepage": "https://avatar-database.herokuapp.com",
   "bugs": {
     "url": "https://github.com/AnonymousX86/avatar-database/issues",
     "email": "jakub.suchenek.25@gmail.com"
