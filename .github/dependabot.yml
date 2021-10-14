@@ -6,6 +6,7 @@ updates:
   schedule:
     interval: daily
     time: '00:00'
+  target-branch: 'master'
   open-pull-requests-limit: 10
   reviewers:
     - anonymousx86
@@ -21,6 +22,7 @@ updates:
   schedule:
     interval: daily
     time: '00:00'
+  target-branch: 'master'
   open-pull-requests-limit: 10
   reviewers:
     - anonymousx86
