@@ -2,7 +2,7 @@
   <div>
     <Navigation />
     <b-container class="my-3">
-      <Nuxt />
+      <Nuxt keep-alive />
       <MyFooter />
     </b-container>
   </div>
