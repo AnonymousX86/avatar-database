@@ -1,6 +1,6 @@
 <template>
   <b-navbar toggleable="lg" type="dark" variant="primary">
-    <b-navbar-brand to="/" class="ms-2">
+    <b-navbar-brand to="/">
       <b-img
         src="../assets/img/navbar-icon.webp"
         alt=""
