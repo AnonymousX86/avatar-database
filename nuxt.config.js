@@ -88,6 +88,9 @@ export default {
     Allow: "/",
   },
   build: {},
+  bootstrapVue: {
+    icons: false,
+  },
   env: {
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
     CTF_ENVIRONMENT_ID: process.env.CTF_ENVIRONMENT_ID,
