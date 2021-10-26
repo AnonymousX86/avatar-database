@@ -45,7 +45,7 @@
       <article>
         <h3>Why are you collecting them?</h3>
         <p>
-          It's very good question...BUT, try asking numismatist why they're
+          It's very good question. But try asking numismatist why they're
           collecting coins. Everyone should have a hobby.
         </p>
       </article>
