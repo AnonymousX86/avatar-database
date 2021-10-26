@@ -27,27 +27,10 @@
     </b-col>
 
     <b-col cols="12" class="mb-3">
-      <h2>Quick FAQ</h2>
-      <article>
-        <h3>What's "avatar"?</h3>
-        <p>
-          If you're new on the Internet; avatars are images that are not yours
-          photo but an image representing you over the Internet.
-        </p>
-      </article>
-      <article>
-        <h3>Are they paid?</h3>
-        <p>
-          Some of them yes, but those on this website - no. All images in this
-          website are free to use.
-        </p>
-      </article>
-      <article>
-        <h3>Why are you collecting them?</h3>
-        <p>
-          It's very good question. But try asking numismatist why they're
-          collecting coins. Everyone should have a hobby.
-        </p>
+      <h2 class="mb-3">Quick FAQ</h2>
+      <article v-for="(question, index) in faq" :key="index">
+        <p class="mb-0 pb-0 font-weight-bold">Q: {{ question.q }}</p>
+        <p>A: {{ question.a }}</p>
       </article>
     </b-col>
   </b-row>
@@ -73,6 +56,20 @@ export default {
           id: 2,
           text: "Dark",
           value: "dark",
+        },
+      ],
+      faq: [
+        {
+          q: 'What\'s "avatar"?',
+          a: "If you're new on the Internet; avatars are images that are not yours photo but an image representing you over the Internet.",
+        },
+        {
+          q: "Are they paid?",
+          a: "Generally some of them yes, but those on this website - no. All images in this website are free to use.",
+        },
+        {
+          q: "Why are you collecting them?",
+          a: "It's very good question. But try asking numismatist why they're collecting coins. Everyone should have a hobby.",
         },
       ],
     }
