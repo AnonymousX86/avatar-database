@@ -93,4 +93,8 @@ export default {
     CTF_ENVIRONMENT_ID: process.env.CTF_ENVIRONMENT_ID,
     CTF_ACCESS_TOKEN: process.env.CTF_ACCESS_TOKEN,
   },
+  server: {
+    port: process.env.PORT,
+    host: "0.0.0.0",
+  },
 }

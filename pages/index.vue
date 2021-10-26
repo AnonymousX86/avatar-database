@@ -4,6 +4,7 @@
       <h1>Avatar database</h1>
       <p>A lot of free to use avatars.</p>
     </b-col>
+
     <b-col md="6" lg="4" xl="3">
       <p class="h5">Change theme</p>
       <b-row class="my-2">
@@ -23,6 +24,31 @@
         ( <span class="text-capitalize">{{ $colorMode.value }}</span> theme
         detected )
       </p>
+    </b-col>
+
+    <b-col cols="12" class="mb-3">
+      <h2>Quick FAQ</h2>
+      <article>
+        <h3>What's "avatar"?</h3>
+        <p>
+          If you're new on the Internet; avatars are images that are not yours
+          photo but an image representing you over the Internet.
+        </p>
+      </article>
+      <article>
+        <h3>Are they paid?</h3>
+        <p>
+          Some of them yes, but those on this website - no. All images in this
+          website are free to use.
+        </p>
+      </article>
+      <article>
+        <h3>Why are you collecting them?</h3>
+        <p>
+          It's very good question...BUT, try asking numismatist why they're
+          collecting coins. Everyone should have a hobby.
+        </p>
+      </article>
     </b-col>
   </b-row>
 </template>

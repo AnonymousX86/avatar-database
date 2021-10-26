@@ -1,17 +1,6 @@
 <template>
   <b-navbar toggleable="lg" type="dark" variant="primary">
-    <b-navbar-brand to="/">
-      <b-img-lazy
-        src=""
-        alt=""
-        fluid
-        width="32"
-        blank-width="32"
-        height="32"
-        blank-height="32"
-      />
-      Avatar Database
-    </b-navbar-brand>
+    <b-navbar-brand to="/" class="ms-2">Avatar Database</b-navbar-brand>
     <b-navbar-toggle target="nav-collapse" />
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>

@@ -27,7 +27,7 @@
     "heroku-postbuild": "npm run build"
   },
   "config": {
-    "port": "3000"
+    "port": "443"
   },
   "dependencies": {
     "@nuxt/content": "^1.15.0",
