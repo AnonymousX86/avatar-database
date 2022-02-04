@@ -7,7 +7,7 @@ updates:
     interval: daily
     time: '00:00'
   target-branch: 'master'
-  open-pull-requests-limit: 10
+  open-pull-requests-limit: 3
   reviewers:
     - anonymousx86
   assignees:
@@ -23,7 +23,7 @@ updates:
     interval: daily
     time: '00:00'
   target-branch: 'master'
-  open-pull-requests-limit: 10
+  open-pull-requests-limit: 1
   reviewers:
     - anonymousx86
   assignees:
