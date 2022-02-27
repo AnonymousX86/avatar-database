@@ -37,7 +37,7 @@
     "bootstrap": "4.5",
     "bootstrap-vue": "^2.21.2",
     "express": "^4.17.2",
-    "contentful": "^9.1.10",
+    "contentful": "^9.1.12",
     "core-js": "^3.21.1",
     "express": "^4.17.3",
     "jquery": "^3.6.0",
@@ -45,7 +45,7 @@
     "nuxt-start": "^2.15.8"
   },
   "devDependencies": {
-    "@nuxtjs/color-mode": "^3.0.0",
+    "@nuxtjs/color-mode": "^3.0.1",
     "@nuxtjs/eslint-config": "^6.0.1",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/pwa": "^3.3.5",
